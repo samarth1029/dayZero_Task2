@@ -5,14 +5,14 @@
 The contents of this repository can be run and resukts can be fetched by installig becessary Python packages available in requirements.txt. Additionally, we have run the program over ticker symbols provided in ticker_symbols.txt.
 
 This task can be categorized into the following subtasks:
--Subtask 1: Data collection, cleaning and preprocessing
--Subtask 2: Putting the stock data collected into suitable databases
--Subtask 3: Create a Flask REST API for desired routes, query the data and store the required ouput in a CSV file
+- Subtask 1: Data collection, cleaning and preprocessing
+- Subtask 2: Putting the stock data collected into suitable databases
+- Subtask 3: Create a Flask REST API for desired routes, query the data and store the required ouput in a CSV file
 
 To accomplish the subtasks the folllowing scripts and algorithms have been created:
--Subtask 1: Data collection and processing using [stockData.py]("stockData.py)
--Subtask 2: Databse creation and insertion using [put_weekly_data.py]("put_weekly_data.py"),[put_data_into_db.py]("put_data_into_db.py") and [test.py]("test.py")
--Subtask 3: Flask REST API using [gainersLosers.py]("gainersLosers.py") and [weekly.py]("weekly.py")
+- Subtask 1: Data collection and processing using [stockData.py]("stockData.py)
+- Subtask 2: Databse creation and insertion using [put_weekly_data.py]("put_weekly_data.py"),[put_data_into_db.py]("put_data_into_db.py") and [test.py]("test.py")
+- Subtask 3: Flask REST API using [gainersLosers.py]("gainersLosers.py") and [weekly.py]("weekly.py")
 
 ## Subtask 1 (Fetching Data and Preprocessing)
 
@@ -27,10 +27,10 @@ A sample CSV file in this folder for 'AAPL' looks like this:
 ## Subtask 2 (Database Handling)
 
 Here an attempt has been made to create two databases:
--weekStock.db
--stock_model.db
+- weekStock.db
+- stock_model.db
 
--To create weekStock.db, a Python script [put_weekly_data.py]("put_weekly_data.py") has been written.
+- To create weekStock.db, a Python script [put_weekly_data.py]("put_weekly_data.py") has been written.
 *Approach*:
 
 This databse contains one table named 'weekly_stocks' which has records for all ticker symbols over a span of 7 days.
