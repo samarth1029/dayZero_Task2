@@ -67,13 +67,13 @@ In this way, we have set up all databases,tables and CSVs to proceed with creati
 ## Subtask 3 (Flask REST API)
 
 Subtask 3 can be further divided into 3 categories, which accomplish the task of creation of three endpoints/routes/paths:
--/get_top_gainers
+- /get_top_gainers
  The endpoint returns the top 10 stocks whose price increased as compared to the previous day in a JSON structure.
  This is inside [gainersLosers.py]("gainersLosers.py").
--/get_top_losers
+- /get_top_losers
  The endpoint returns the top 10 stocks whose price decreased as compared to the previous day in a JSON structure.
  This is inside [gainersLosers.py]("gainersLosers.py").
--/generate_weekly_report
+- /generate_weekly_report
  The endpoint returns all the stocks with weekly high, low and average price. Furthermore, it creates a CSV file containing the following columns: STOCK, WEEKLY HIGH, WEEKLY LOW and AVERAGE. This is inside [weekly.py]("weekly.py")
 
 Before proceeding any further, we need to define the table structure which is as follows:
@@ -81,7 +81,7 @@ Before proceeding any further, we need to define the table structure which is as
 <img src="images/table_structure.png" height=200 width=500>
 
 Now,let us dive into the approach for achieving the 3 routes in the API:
--/get_top_gainers
+- /get_top_gainers
  
  <img src="images/gainers.png" height=300 width=1000>
 
@@ -89,7 +89,7 @@ Now,let us dive into the approach for achieving the 3 routes in the API:
 
  <img src="images/top_gainers_1.png" height=900 width=600>
 
--/get_top_losers
+- /get_top_losers
  
  <img src="images/losers.png" height=200 width=1000>
 
@@ -97,7 +97,7 @@ Now,let us dive into the approach for achieving the 3 routes in the API:
 
  <img src="images/top_losers_1.png" height=900 width=600>
 
--/generate_weekly_report
+- /generate_weekly_report
  
  <img src="images/weeklyRep.png" height=700 width=1000>
 
