@@ -30,7 +30,7 @@ Here an attempt has been made to create two databases:
 - weekStock.db
 - stock_model.db
 
-- To create weekStock.db, a Python script [put_weekly_data.py]("put_weekly_data.py") has been written.
+To create weekStock.db, a Python script [put_weekly_data.py]("put_weekly_data.py") has been written.
 *Approach*:
 
 This databse contains one table named 'weekly_stocks' which has records for all ticker symbols over a span of 7 days.
@@ -43,7 +43,7 @@ Once this databse is set up, we have a database running an SQL query "SELECT * F
 
 <img src="images/put_weekly_data.png" height=600 width=800>
 
--To create stock_model.db, Python scripts [put_data_into_db.py]("put_data_into_db.py") and [test.py]("test.py") have been written.
+To create stock_model.db, Python scripts [put_data_into_db.py]("put_data_into_db.py") and [test.py]("test.py") have been written.
 *Approach*:
 
 This databse contains one table named 'stock_model' that contains data for the current day for all ticker symbols.
