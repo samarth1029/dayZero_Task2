@@ -22,7 +22,7 @@ We also add an additional attribute to the dataframe, namely 'high_diff', which 
 All the computed data is stored in the data folder as CSV files under this repository.
 A sample CSV file in this folder for 'AAPL' looks like this:
 
-<img src="images/collected_sample.png" height=400 width=400>
+<img src="images/collected_sample.png" height=300 width=900>
 
 ## Subtask 2 (Database Handling)
 
@@ -37,11 +37,11 @@ This databse contains one table named 'weekly_stocks' which has records for all 
 During development, SQLite database has been used. SQLite databases are the most convenient choice for developing small applications, sometimes even not so small ones, as each database is stored in a single file on disk and there is no need to run a database server like MySQL and PostgreSQL.
 We first acquire the weekly data and convert it to a pandas data frame.Next, we set up the engine using [SQLAlchemy create_engine]("https://docs.sqlalchemy.org/en/14/core/engines.html").
 
-<img src="images/sqlalchemy_engine.png" height=400 width=400>
+<img src="images/sqlalchemy_engine.png" height=150 width=700>
 
 Once this databse is set up, we have a database running an SQL query "SELECT * FROM weekly_stocks" gives the following view(presented as json):
 
-<img src="images/put_weekly_data.png" height=400 width=400>
+<img src="images/put_weekly_data.png" height=600 width=800>
 
 -To create stock_model.db, Python scripts [put_data_into_db.py]("put_data_into_db.py") and [test.py]("test.py") have been written.
 *Approach*:
@@ -49,18 +49,18 @@ Once this databse is set up, we have a database running an SQL query "SELECT * F
 This databse contains one table named 'stock_model' that contains data for the current day for all ticker symbols.
 We have two new configuration items to add to the config file:
 
-<img src="images/config.png" height=400 width=400>
+<img src="images/config.png" height=300 width=600>
 
 The Flask-SQLAlchemy extension takes the location of the application's database from the SQLALCHEMY_DATABASE_URI configuration variable.It is in general a good practice to set configuration from environment variables, and provide a fallback value when the environment does not define the variable. In this case I'm taking the database URL from the DATABASE_URL environment variable, and if that isn't defined, I'm configuring a database named stock_model.db located in the main directory of the application, which is stored in the basedir variable.
 The SQLALCHEMY_TRACK_MODIFICATIONS configuration option is set to False to disable a feature of Flask-SQLAlchemy that I do not need, which is to send a signal to the application every time a change is about to be made in the database.
 
 After this, a Class 'Stocks' has been defined that attempts to process the put request initiated by 'response' variable in [test.py]("test.py):
 
-<img src="images/put_request.png" height=400 width=400>
+<img src="images/put_request.png" height=100 width=500>
 
 The following is a glimpse at the table in the databse we just created:
 
-<img src="images/put_data.png" height=400 width=400>
+<img src="images/put_data.png" height=300 width=1000>
 
 In this way, we have set up all databases,tables and CSVs to proceed with creation of a Flask REST API under Subtask 3.
 
@@ -78,32 +78,32 @@ Subtask 3 can be further divided into 3 categories, which accomplish the task of
 
 Before proceeding any further, we need to define the table structure which is as follows:
 
-<img src="images/table_structure.png" height=400 width=400>
+<img src="images/table_structure.png" height=200 width=500>
 
 Now,let us dive into the approach for achieving the 3 routes in the API:
 -/get_top_gainers
  
- <img src="images/gainers.png" height=400 width=400>
+ <img src="images/gainers.png" height=300 width=1000>
 
  The code is pretty starightforward. One thing to keep in mind is that after running the SQL query, the result is stored in the form of a Python dictionary, which can't be converted to JSON response directly.So, it is first converted to a json string, which is then converted to the required JSON structure which upon execution, gives the following output:
 
- <img src="images/top_gainers_1.png" height=400 width=400>
+ <img src="images/top_gainers_1.png" height=900 width=600>
 
 -/get_top_losers
  
- <img src="images/losers.png" height=400 width=400>
+ <img src="images/losers.png" height=200 width=1000>
 
  The code is pretty starightforward. One thing to keep in mind is that after running the SQL query, the result is stored in the form of a Python dictionary, which can't be converted to JSON response directly.So, it is first converted to a json string, which is then converted to the required JSON structure which upon execution, gives the following output:
 
- <img src="images/top_losers_1.png" height=400 width=400>
+ <img src="images/top_losers_1.png" height=900 width=600>
 
 -/generate_weekly_report
  
- <img src="images/weeklyRep.png" height=400 width=400>
+ <img src="images/weeklyRep.png" height=700 width=1000>
 
  The code is pretty starightforward.We have built the SQL query using a WITH clause. The SQL WITH clause allows you to give a sub-query block a name (a process also called sub-query refactoring), which can be referenced in several places within the main SQL query. The result is displayed a s a JSON structure, and also stored in a CSV file [weekly_report.csv]("weekly_report.csv"). The JSON response looks like:
 
- <img src="images/weekly_report.png" height=400 width=400>
+ <img src="images/weekly_report.png" height=700 width=800>
 
 In this way, the entire process of generating metrics for our stock data is completed!!
 
